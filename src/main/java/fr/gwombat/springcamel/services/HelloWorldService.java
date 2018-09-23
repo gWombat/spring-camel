@@ -7,6 +7,6 @@ package fr.gwombat.springcamel.services;
  */
 public interface HelloWorldService {
 
-    public String getHelloWorld(String value);
+    String getHelloWorld(String value);
 
 }
