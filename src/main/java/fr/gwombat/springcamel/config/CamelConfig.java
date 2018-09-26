@@ -1,7 +1,7 @@
 package fr.gwombat.springcamel.config;
 
 import fr.gwombat.springcamel.services.HelloWorldService;
-import fr.gwombat.springcamel.support.Constants;
+import fr.gwombat.springcamel.support.Routes;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.spring.javaconfig.CamelConfiguration;
 import org.apache.camel.spring.javaconfig.Main;
@@ -30,7 +30,7 @@ public class CamelConfig extends CamelConfiguration {
         return new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from(Constants.ROUTE_HELLO_WORLD).bean(helloWorldService, "getHelloWorld");
+                from(Routes.ROUTE_HELLO_WORLD).bean(helloWorldService, "getHelloWorld");
             }
         };
     }

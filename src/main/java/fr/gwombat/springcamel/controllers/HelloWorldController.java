@@ -1,6 +1,6 @@
 package fr.gwombat.springcamel.controllers;
 
-import fr.gwombat.springcamel.support.Constants;
+import fr.gwombat.springcamel.support.Routes;
 import org.apache.camel.ProducerTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ public class HelloWorldController {
     @GetMapping("/{val}")
     public String helloWorld(@PathVariable String val) {
         LOGGER.info("Start controller. Calling camel service...");
-        CompletableFuture<String> result = producerTemplate.asyncRequestBody(Constants.ROUTE_HELLO_WORLD, val, String.class);
+        CompletableFuture<String> result = producerTemplate.asyncRequestBody(Routes.ROUTE_HELLO_WORLD, val, String.class);
         LOGGER.info("Service called... Waiting for result");
         try {
             return result.get();
